@@ -60,6 +60,9 @@ fi
 ##      Configure Kitty
 ## ====================================================================
 
+## Create directory ~/.config
+mkdir ~/.config
+
 ## Symbolic link
 ln -sf ~/.dotfiles/.config/kitty/ ~/.config/
 
