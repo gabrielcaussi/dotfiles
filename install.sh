@@ -25,20 +25,6 @@ sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-releas
 sudo dnf update -y
 
 ## Install Softwares
-sudo dnf install Xorg -y
-sudo dnf install bspwm -y
-sudo dnf install sxhkd -y
-sudo dnf install xinit -y
-sudo dnf install lxsession -y
-sudo dnf install xrandr -y
-sudo dnf install polybar -y
-sudo dnf install playerctl -y
-sudo dnf install pulseaudio -y
-sudo dnf install NetworkManager -y
-sudo dnf install xsetroot -y
-sudo dnf install rofi -y
-sudo dnf install dunst -y
-sudo dnf install nemo -y
 sudo dnf install broadcom-wl -y
 sudo dnf install ffmpeg -y
 sudo dnf install xclip -y
@@ -54,6 +40,7 @@ sudo dnf install hugo -y
 sudo dnf install flameshot -y
 sudo dnf install vagrant -y
 sudo dnf install util-linux-user -y
+sudo dnf install wget -y
 
 ## Install Google Chrome
 if ! [ -x "$(command -v google-chrome)" ]; then
@@ -68,23 +55,6 @@ if ! [ -x "$(command -v virtualbox)" ]; then
   sudo dnf install VirtualBox-6.1-6.1.24_145767_fedora33-1.x86_64.rpm -y
   rm VirtualBox-6.1-6.1.24_145767_fedora33-1.x86_64.rpm*
 fi
-
-## ====================================================================
-##      Configure Bspwm
-## ====================================================================
-
-## Create .config directory
-mkdir ~/.config
-
-## Symbolic link
-ln -sf ~/.dotfiles/.config/bspwm/ ~/.config/
-
-## ====================================================================
-##      Configure Dunst
-## ====================================================================
-
-## Symbolic link
-ln -sf ~/.dotfiles/.config/dunst/ ~/.config/
 
 ## ====================================================================
 ##      Configure Kitty
@@ -105,27 +75,6 @@ curl -fLo ~/.dotfiles/.config/nvim/autoload/plug.vim --create-dirs \
 ln -sf ~/.dotfiles/.config/nvim/ ~/.config/
 
 ## ====================================================================
-##      Configure Polybar
-## ====================================================================
-
-## Symbolic link
-ln -sf ~/.dotfiles/.config/polybar/ ~/.config/
-
-## ====================================================================
-##      Configure Rofi
-## ====================================================================
-
-## Symbolic link
-ln -sf ~/.dotfiles/.config/rofi/ ~/.config/
-
-## ====================================================================
-##      Configure Sxhkd
-## ====================================================================
-
-## Symbolic link
-ln -sf ~/.dotfiles/.config/sxhkd/ ~/.config/
-
-## ====================================================================
 ##      Configure Git
 ## ====================================================================
 
@@ -138,20 +87,6 @@ ln -sf ~/.dotfiles/.gitconfig ~/
 
 ## Symbolic link
 ln -sf ~/.dotfiles/.tmux.conf ~/
-
-## ====================================================================
-##      Configure Xinit
-## ====================================================================
-
-## Symbolic link
-ln -sf ~/.dotfiles/.xinitrc ~/
-
-## ====================================================================
-##      Configure Zprofile
-## ====================================================================
-
-## Symbolic link
-ln -sf ~/.dotfiles/.zprofile ~/
 
 ## ====================================================================
 ##      Configure ZSH
