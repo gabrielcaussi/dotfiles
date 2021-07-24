@@ -46,8 +46,41 @@ if ! [ -x "$(command -v virtualbox)" ]; then
   rm VirtualBox-6.1-6.1.24_145767_fedora33-1.x86_64.rpm*
 fi
 
-## install Visual Studio Code
-sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
-sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
-sudo dnf check-update
-sudo dnf install code
+## Install Visual Studio Code
+if ! [ -x "$(command -v code)" ]; then
+  sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc -y
+  sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo' -y
+  sudo dnf check-update -y
+  sudo dnf install code -y
+fi
+
+## Create directory ~/.config
+mkdir ~/.config
+
+## Symbolic link Kitty
+ln -sf ~/dotfiles/.config/kitty/ ~/.config/
+
+## Install Vim-plug
+curl -fLo ~/dotfiles/.config/nvim/autoload/plug.vim --create-dirs \
+  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+## Symbolic link Neovim
+ln -sf ~/dotfiles/.config/nvim/ ~/.config/
+
+## Symbolic link Git
+ln -sf ~/dotfiles/.gitconfig ~/
+
+## Symbolic link Tmux
+ln -sf ~/dotfiles/.tmux.conf ~/
+
+## Install Oh-My-Zsh
+RUN_ZSH=no sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+## Change default Shell to ZSH
+chsh -s /bin/zsh
+
+## Symbolic link ZSH
+ln -sf ~/dotfiles/.zshrc ~/
+
+## Symbolic link Fonts
+ln -sf ~/dotfiles/.fonts/ ~/

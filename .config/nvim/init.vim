@@ -5,16 +5,16 @@
 
 call plug#begin()
 
-    Plug 'dracula/vim'
-    Plug 'preservim/nerdtree'
-    Plug 'preservim/nerdcommenter'
-    Plug 'ryanoasis/vim-devicons'
-    Plug 'jeffkreeftmeijer/vim-numbertoggle'
-    Plug 'yggdroot/indentline'
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
-    Plug 'editorconfig/editorconfig-vim'
-    Plug 'ap/vim-css-color'
+  Plug 'dracula/vim'
+  Plug 'preservim/nerdtree'
+  Plug 'preservim/nerdcommenter'
+  Plug 'ryanoasis/vim-devicons'
+  Plug 'jeffkreeftmeijer/vim-numbertoggle'
+  Plug 'yggdroot/indentline'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+  Plug 'editorconfig/editorconfig-vim'
+  Plug 'ap/vim-css-color'
 
 call plug#end()
 
