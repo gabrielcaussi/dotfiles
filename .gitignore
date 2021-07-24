@@ -1,0 +1,3 @@
+## Ignore all files and subdirectories in the directory
+.config/nvim/plugged
+.config/nvim/autoload

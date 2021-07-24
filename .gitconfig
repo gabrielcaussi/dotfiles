@@ -1,0 +1,7 @@
+[user]
+name = Gabriel Caussi
+username = gabrielcaussi
+email = gcaussi@gmail.com
+
+[core]
+editor = nvim
