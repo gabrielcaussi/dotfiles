@@ -16,21 +16,7 @@ sudo dnf update -y
 
 ## Install Softwares
 sudo dnf install broadcom-wl -y
-sudo dnf install ffmpeg -y
-sudo dnf install xclip -y
-sudo dnf install zsh -y
-sudo dnf install curl -y
-sudo dnf install git -y
-sudo dnf install tmux -y
-sudo dnf install neofetch -y
-sudo dnf install htop -y
-sudo dnf install neovim -y
-sudo dnf install kitty -y
-sudo dnf install hugo -y
-sudo dnf install flameshot -y
-sudo dnf install vagrant -y
-sudo dnf install util-linux-user -y
-sudo dnf install wget -y
+sudo dnf install ffmpeg util-linux-user wget xclip zsh curl git tmux neofetch htop neovim kitty hugo flameshot vagrant -y
 
 ## Install Google Chrome
 if ! [ -x "$(command -v google-chrome)" ]; then
