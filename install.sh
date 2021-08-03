@@ -70,3 +70,9 @@ ln -sf ~/dotfiles/.zshrc ~/
 
 ## Symbolic link Fonts
 ln -sf ~/dotfiles/.fonts/ ~/
+
+## Set Breeze Dark Theme
+plasma-apply-lookandfeel -a org.kde.breezedark.desktop
+
+## Set KDE Plasma Wallpaper
+plasma-apply-wallpaperimage ~/dotfiles/wallpaper/wallpaper.png
