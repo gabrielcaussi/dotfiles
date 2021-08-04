@@ -16,20 +16,16 @@ sudo dnf update -y
 
 ## Install Softwares
 sudo dnf install broadcom-wl -y
-sudo dnf install ffmpeg util-linux-user wget xclip zsh curl git tmux neofetch htop neovim kitty hugo flameshot vagrant -y
+sudo dnf install ffmpeg util-linux-user fira-code-fonts wget xclip zsh curl git tmux neofetch htop neovim kitty hugo flameshot vagrant -y
 
 ## Install Google Chrome
 if ! [ -x "$(command -v google-chrome)" ]; then
-  wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
-  sudo dnf install google-chrome-stable_current_x86_64.rpm -y
-  rm google-chrome-stable_current_x86_64.rpm*
+  sudo dnf install https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm -y
 fi
 
 ## Install Virtualbox
 if ! [ -x "$(command -v virtualbox)" ]; then
-  wget https://download.virtualbox.org/virtualbox/6.1.24/VirtualBox-6.1-6.1.24_145767_fedora33-1.x86_64.rpm
-  sudo dnf install VirtualBox-6.1-6.1.24_145767_fedora33-1.x86_64.rpm -y
-  rm VirtualBox-6.1-6.1.24_145767_fedora33-1.x86_64.rpm*
+  sudo dnf install https://download.virtualbox.org/virtualbox/6.1.24/VirtualBox-6.1-6.1.24_145767_fedora33-1.x86_64.rpm -y
 fi
 
 ## Install Visual Studio Code
@@ -75,4 +71,4 @@ ln -sf ~/dotfiles/.fonts/ ~/
 plasma-apply-lookandfeel -a org.kde.breezedark.desktop
 
 ## Set KDE Plasma Wallpaper
-plasma-apply-wallpaperimage ~/dotfiles/wallpaper/wallpaper.png
+plasma-apply-wallpaperimage ~/dotfiles/wallpaper/wallpaper.jpeg
