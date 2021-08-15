@@ -1,22 +1,24 @@
 #!/bin/bash
 
-## Project:     Fedora Workstation
-## Description: DevOps Engineer Workstation Running Fedora Linux
-## Developer:   Gabriel Caussi
-## Github:      https://github.com/gabrielcaussi
-## Linkedin:    https://www.linkedin.com/in/gabrielcaussi
+# Project     : Fedora Workstation
+# Description : DevOps Engineer Workstation Running Fedora Linux
+# Developer   : Gabriel Caussi
+# Github      : https://github.com/gabrielcaussi
+# Linkedin    : https://www.linkedin.com/in/gabrielcaussi
 
 ## Update System
 sudo dnf update -y
 sudo dnf upgrade -y
 
-## Install non-free repository
+## Install fedora non-free repository
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
 sudo dnf update -y
 
-## Install Softwares
+## Install wifi module for Thinkpad E431 (BCM43142)
 sudo dnf install broadcom-wl -y
-sudo dnf install ffmpeg util-linux-user fira-code-fonts wget xclip zsh curl git tmux neofetch htop neovim kitty hugo flameshot vagrant -y
+
+## Install BSPWM, dependencies and softwares
+sudo dnf install bspwm ffmpeg wget curl xclip git neofetch htop rofi ranger feh mpv polybar zsh tmux neovim kitty hugo flameshot vagrant -y
 
 ## Install Google Chrome
 if ! [ -x "$(command -v google-chrome)" ]; then
@@ -26,14 +28,6 @@ fi
 ## Install Virtualbox
 if ! [ -x "$(command -v virtualbox)" ]; then
   sudo dnf install https://download.virtualbox.org/virtualbox/6.1.24/VirtualBox-6.1-6.1.24_145767_fedora33-1.x86_64.rpm -y
-fi
-
-## Install Visual Studio Code
-if ! [ -x "$(command -v code)" ]; then
-  sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc -y
-  sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo' -y
-  sudo dnf check-update -y
-  sudo dnf install code -y
 fi
 
 ## Create directory ~/.config
@@ -66,9 +60,3 @@ ln -sf ~/dotfiles/.zshrc ~/
 
 ## Symbolic link Fonts
 ln -sf ~/dotfiles/.fonts/ ~/
-
-## Set Breeze Dark Theme
-plasma-apply-lookandfeel -a org.kde.breezedark.desktop
-
-## Set KDE Plasma Wallpaper
-plasma-apply-wallpaperimage ~/dotfiles/wallpaper/wallpaper.jpeg
