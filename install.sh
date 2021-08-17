@@ -18,7 +18,7 @@ sudo dnf update -y
 sudo dnf install broadcom-wl -y
 
 ## Install BSPWM, dependencies and softwares
-sudo dnf install bspwm ffmpeg wget curl xclip git neofetch htop rofi ranger feh mpv polybar zsh tmux neovim kitty hugo flameshot vagrant -y
+sudo dnf install bspwm sxhkd ffmpeg wget curl xclip git neofetch htop rofi ranger feh mpv polybar zsh tmux neovim kitty hugo flameshot vagrant -y
 
 ## Install Google Chrome
 if ! [ -x "$(command -v google-chrome)" ]; then
@@ -33,30 +33,31 @@ fi
 ## Create directory ~/.config
 mkdir ~/.config
 
-## Symbolic link Kitty
+## Kitty
 ln -sf ~/dotfiles/.config/kitty/ ~/.config/
 
-## Install Vim-plug
+## Vim-plug
 curl -fLo ~/dotfiles/.config/nvim/autoload/plug.vim --create-dirs \
   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-## Symbolic link Neovim
+## Neovim
 ln -sf ~/dotfiles/.config/nvim/ ~/.config/
+nvim +PlugInstall +qall
 
-## Symbolic link Git
+## Git
 ln -sf ~/dotfiles/.gitconfig ~/
 
-## Symbolic link Tmux
+## Tmux
 ln -sf ~/dotfiles/.tmux.conf ~/
 
-## Install Oh-My-Zsh
+## Oh-My-Zsh
 RUN_ZSH=no sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 ## Change default Shell to ZSH
 chsh -s /bin/zsh
 
-## Symbolic link ZSH
+## ZSH
 ln -sf ~/dotfiles/.zshrc ~/
 
-## Symbolic link Fonts
+## Fonts
 ln -sf ~/dotfiles/.fonts/ ~/

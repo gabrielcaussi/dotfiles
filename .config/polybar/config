@@ -1,0 +1,277 @@
+; bar right
+; * Poweroff
+; * 16:27
+; * Fri 26 Mar
+; * Audio
+; * Wifi
+; * Ethernet
+; * Battery
+; * Screenshot (cam icon - flameshot gui)
+; * Att
+; * Docker
+; * RAM
+; * CPU
+; * SSD
+; * Player control
+; * CPU Temp
+; * Trello
+; * Brightness
+; * Caps Lock
+; * Bluetooth
+
+; bar left
+; * desktops (Firefox, Terminal, )
+; * Title
+
+[colors]
+
+bg = #1E222A
+fg = #C2CAD9
+
+alt-bg = #2A2E36
+alt-bg1 =  #565c64
+
+white = #ABB2BF
+red = #E06C75
+green = #98C379
+yellow = #E5C07B
+magenta = #C678DD
+purple = #989cff
+cyan = #56B6C2
+blue = #61AFEF
+
+[bar/sauce]
+monitor = HDMI-A-0
+;tray-position = right
+width =  100%
+height = 22
+padding-left = 1
+padding-right = 1
+
+background = ${colors.bg}
+foreground = ${colors.fg}
+bottom = false
+border-top-size = 5
+border-bottom-size = 5
+border-top-color = ${colors.bg}
+border-bottom-color = ${colors.bg}
+
+line-size = 1
+wm-restack = bspwm
+
+modules-left = round-left bspwm round-right space round-left polywins round-right
+modules-center =  
+modules-right = round-left spotify round-right space round-left temperature round-right space round-left updates round-right space round-left cpu round-right space round-left mem round-right space round-left pulseaudio round-right space round-left wlan round-right space round-left time round-right powermenu
+
+font-0 = JetBrainsMono Nerd Font:style=Medium:size=9:antialias=true;3
+font-1 = JetBrainsMono Nerd Font:style=Bold:size=13:antialias=true;4
+font-2 = JetBrainsMono Nerd Font:size=14:antialias=true;4
+font-3 = Material Design Icons:style=Bold:size=11:antialias=true;3
+font-4 = unifont:fontformat=truetype:size=10:antialias=true;3
+font-5 = JetBrainsMono Nerd Font:style=Bold:pixelsize=12:antialias=true;3
+font-6 = SauceCodePro Nerd Font Mono:size=17:antialias=true;5
+font-7 = Togalite Bold:pixelsize=9.5:antialias=true;3
+font-8 = Material Icons:size=11;4
+font-9 = SauceCodePro Nerd Font Mono:size=15;4
+
+[module/polywins]
+type = custom/script
+exec = ~/.config/polybar/scripts/polywins.sh 2>/dev/null
+format = <label>
+format-background = ${colors.alt-bg}
+label = %output%
+label-padding = 0
+tail = true
+
+[module/space]
+type = custom/text
+content = " "
+
+[module/round-left]
+type = custom/text
+content = %{T3}%{T-}
+content-foreground = ${colors.alt-bg}
+
+[module/round-right]
+type = custom/text
+content = %{T3}%{T-}
+content-foreground = ${colors.alt-bg}
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+hwmon-path = /sys/devices/pci0000:00/0000:00:08.1/0000:06:00.0/hwmon/hwmon0/temp1_input
+warn-temperature = 70
+interval = 10
+
+format = <ramp> <label>
+format-warn = <ramp> <label-warn>
+format-padding = 0
+label = %temperature%
+label-warn = %temperature%
+ramp-0 =  "󰜗" 
+ramp-font = 3
+format-background = ${colors.alt-bg}
+format-foreground = ${colors.cyan}
+
+[module/bspwm]
+type = internal/bspwm
+
+pin-workspaces = true
+inline-mode = true
+enable-click = true
+enable-scroll = true
+reverse-scroll = false
+
+format = <label-state>
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+
+label-separator = " "
+label-separator-background = ${colors.alt-bg}
+
+label-focused = %icon%  
+label-focused-foreground = ${colors.red}
+label-focused-padding = 1
+label-focused-background = ${colors.alt-bg}
+label-focused-margin = 0 
+
+label-occupied = %icon%  
+label-occupied-foreground = ${colors.white}  
+label-occupied-background = ${colors.alt-bg}
+label-occupied-padding = 1
+label-occupied-margin = 0 
+
+label-empty = %icon%
+label-empty-foreground = ${colors.alt-bg1}
+label-empty-padding = 1
+label-empty-background = #2a2e36
+label-empty-margin = 0 
+
+label-urgent = %icon%
+label-urgent-foreground = #88C0D0
+label-urgent-background = #2a2e36
+label-urgent-padding = 1
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume = <label-volume> <bar-volume>
+format-volume-background = ${colors.alt-bg}
+
+label-volume = %{T7}墳%{T-}  
+label-volume-foreground = ${colors.blue}
+label-volume-backround = ${colors.alt-bg}
+
+label-muted = %{T7}婢%{T-} Muted
+format-muted-foreground = ${colors.red}
+format-muted-background = ${colors.alt-bg}
+format-muted-padding = 1
+
+bar-volume-width = 10
+
+bar-volume-foreground = ${colors.blue}
+
+bar-volume-gradient = false
+
+bar-volume-indicator = 
+bar-volume-indicator-foreground = ${colors.blue}
+bar-volume-indicator-background = ${colors.alt-bg}
+bar-volume-indicator-font = 2
+
+bar-volume-fill = ━ 
+bar-volume-fill-foreground = ${colors.blue}
+bar-volume-fill-background = ${colors.alt-bg}
+bar-volume-fill-font = 2
+
+bar-volume-empty = ━
+bar-volume-empty-background = ${colors.alt-bg}
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.alt-bg1}
+
+[module/time]
+type = internal/date
+interval = 60
+
+format = <label>
+format-background = ${colors.alt-bg}
+format-foreground = ${colors.white}
+
+date = 󰥔 %H:%M%
+time-alt = 󰃭 %A, %B %d%
+
+label = %date%%time%
+
+[module/mem]
+type = custom/script
+exec = free -m | sed -n 's/^Mem:\s\+[0-9]\+\s\+\([0-9]\+\)\s.\+/\1/p'
+format = %{T2}﬙ %{T-}<label>
+format-background = ${colors.alt-bg}
+format-foreground = ${colors.yellow}
+label = %output% MB
+label-background = ${colors.alt-bg}
+label-foreground = ${colors.yellow}
+
+[module/updates]
+type = custom/script
+exec = $HOME/.config/polybar/scripts/updates.sh
+format = <label>
+interval = 4600 
+label = %{T6} %{T-}%output%'updates
+label-background = ${colors.alt-bg}
+label-foreground = ${colors.red}
+tail = true
+
+[module/powermenu]
+type = custom/text 
+content = 
+content-padding = 1
+click-left = sh $HOME/.config/rofi/launch.sh powermenu
+content-foreground = ${colors.red}
+
+[module/wlan]
+type = internal/network
+interface = enp4s0
+interval = 3.0
+format-connected =  <label-connected>
+label-connected = "󰤨 Nawfside" 
+label-connected-background = ${colors.alt-bg}
+label-connected-foreground = ${colors.green} 
+
+[module/cpu]
+type = internal/cpu
+interval = 2.5
+
+format-prefix = %{T2} %{T-} 
+format = <label> 
+
+label = CPU %percentage%%
+format-background = ${colors.alt-bg}
+format-foreground = ${colors.purple}
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...
+
+[module/spotify]
+type = custom/script
+
+interval = 1
+
+exec = python ~/.config/polybar/scripts/getSpotifyStatus.py -f '{artist} ~ {song}' -t 50
+
+format = '<label>
+format-background = ${colors.alt-bg}
+format-foreground = ${colors.green}
+
+click-left = playerctl -p spotify play-pause
+click-right = bspc desktop -f '^4'
+
+scroll-up = playerctl -p spotify next
+scroll-down = playerctl -p spotify previous
+
+; vim:ft=dosini
