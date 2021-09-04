@@ -18,7 +18,7 @@ sudo dnf update -y
 sudo dnf install broadcom-wl -y
 
 ## Install BSPWM, dependencies and softwares
-sudo dnf install bspwm sxhkd ffmpeg wget curl xclip git neofetch htop rofi ranger feh mpv polybar zsh tmux neovim kitty hugo flameshot vagrant -y
+sudo dnf install bspwm sxhkd xsetroot setxkbmap xinput xinit xclip dunst brightnessctl ffmpeg wget curl git neofetch htop rofi ranger feh mpv polybar zsh tmux neovim kitty hugo flameshot vagrant -y
 
 ## Install Google Chrome
 if ! [ -x "$(command -v google-chrome)" ]; then
@@ -58,6 +58,31 @@ chsh -s /bin/zsh
 
 ## ZSH
 ln -sf ~/dotfiles/.zshrc ~/
+
+## Zprofile
+ln -sf ~/dotfiles/.zprofile ~/
+
+## Xinit
+ln -sf ~/dotfiles/.xinitrc ~/
+
+## Bspwm
+ln -sf ~/dotfiles/.config/bspwm/ ~/.config/
+
+## Dunst
+ln -sf ~/dotfiles/.config/dunst/ ~/.config/
+
+## Polybar
+ln -sf ~/dotfiles/.config/polybar/ ~/.config/
+
+## Rofi
+ln -sf ~/dotfiles/.config/rofi/ ~/.config/
+
+## Sxhkd
+ln -sf ~/dotfiles/.config/sxhkd/ ~/.config/
+
+## Gtk
+ln -sf ~/dotfiles/.gtkrc-2.0 ~/
+ln -sf ~/dotfiles/.config/gtk-3.0/ ~/.config/
 
 ## Fonts
 ln -sf ~/dotfiles/.fonts/ ~/
