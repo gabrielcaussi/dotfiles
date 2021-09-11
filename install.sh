@@ -18,7 +18,7 @@ sudo dnf update -y
 sudo dnf install broadcom-wl -y
 
 ## Install dependencies and softwares
-sudo dnf install xclip ffmpeg wget curl git neofetch htop zsh tmux neovim kitty hugo flameshot vagrant -y
+sudo dnf install util-linux-user xclip ffmpeg wget curl git neofetch htop zsh tmux neovim kitty hugo flameshot vagrant -y
 
 ## Install Google Chrome
 if ! [ -x "$(command -v google-chrome)" ]; then
@@ -50,18 +50,21 @@ ln -sf ~/dotfiles/.gitconfig ~/
 ## Tmux
 ln -sf ~/dotfiles/.tmux.conf ~/
 
+## Set themes, icons and cursors
+ln -sf ~/dotfiles/.themes/ ~/
+ln -sf ~/dotfiles/.icons/ ~/
+gsettings set org.gnome.desktop.interface gtk-theme "dracula-theme"
+gsettings set org.gnome.desktop.interface icon-theme "Papirus-Black-Dark"
+gsettings set org.gnome.desktop.interface cursor-theme "cursor-dracula"
+
+## Fonts
+ln -sf ~/dotfiles/.fonts/ ~/
+
 ## Oh-My-Zsh
 RUN_ZSH=no sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-## Change default Shell to ZSH
-chsh -s /bin/zsh
 
 ## ZSH
 ln -sf ~/dotfiles/.zshrc ~/
 
-## Gtk
-ln -sf ~/dotfiles/.gtkrc-2.0 ~/
-ln -sf ~/dotfiles/.config/gtk-3.0/ ~/.config/
-
-## Fonts
-ln -sf ~/dotfiles/.fonts/ ~/
+## Change default Shell to ZSH
+chsh -s /bin/zsh
