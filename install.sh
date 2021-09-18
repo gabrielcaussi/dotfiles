@@ -33,6 +33,9 @@ fi
 ## Create directory ~/.config
 mkdir ~/.config
 
+## Create directory ~/Projects
+mkdir ~/Projects
+
 ## Kitty
 ln -sf ~/dotfiles/.config/kitty/ ~/.config/
 

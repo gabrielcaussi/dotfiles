@@ -33,7 +33,8 @@ alias vimconf='nvim ~/.config/nvim/init.vim'
 alias zshconf='nvim ~/.zshrc'
 alias gitconf='nvim ~/.gitconfig'
 alias kittyconf='nvim ~/.config/kitty/'
- 
+alias projects='cd ~/Projects'
+
 # Dracula theme for TTY
 if [ "$TERM" = "linux" ]; then
 	printf %b '\e[40m' '\e[8]' # set default background to color 0 'dracula-bg'
