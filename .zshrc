@@ -22,7 +22,6 @@ source $ZSH/oh-my-zsh.sh
 # Alias
 alias q='exit'
 alias ..='cd ..'
-alias ...='cd ...'
 alias vim='nvim'
 alias ipp='curl ipinfo.io/ip'
 alias nametmux='tmux new -s'
