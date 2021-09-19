@@ -18,7 +18,7 @@ sudo dnf update -y
 sudo dnf install broadcom-wl -y
 
 ## Install dependencies and softwares
-sudo dnf install util-linux-user xclip ffmpeg wget curl git neofetch htop zsh tmux neovim kitty hugo flameshot vagrant -y
+sudo dnf install util-linux-user xclip ffmpeg wget curl git neofetch htop zsh tmux neovim kitty hugo flameshot vagrant google-roboto-fonts -y
 
 ## Install Google Chrome
 if ! [ -x "$(command -v google-chrome)" ]; then
