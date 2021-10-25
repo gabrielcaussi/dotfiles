@@ -1,28 +1,20 @@
 #!/bin/bash
 
-# Project     : Void Linux Workstation
-# Description : Workstation for DevOps Running Void Linux
+# Project     : Xubuntu Workstation
+# Description : Workstation for DevOps Running Xubuntu
 # Developer   : Gabriel Caussi
 # Github      : https://github.com/gabrielcaussi
 # Linkedin    : https://www.linkedin.com/in/gabrielcaussi
 
 ## Update System
-sudo xbps-install -Suy
+sudo apt update -y
+sudo apt upgrade -y
 
 ## Install wifi module for Thinkpad E431 (BCM43142)
-sudo xbps-install -Sy broadcom-wl-dkms
+sudo apt install -y broadcom-sta-dkms
 
 ## Install dependencies and softwares
-sudo xbps-install -Sy util-linux xclip ffmpeg wget curl git neofetch htop zsh tmux neovim kitty hugo flameshot vscode fonts-roboto-ttf
-
-## Install Google Chrome
-sudo xbps-install git base-devel xtools
-git clone https://github.com/void-linux/void-packages
-cd void-packages
-./xbps-src binary-bootstrap
-echo XBPS_ALLOW_RESTRICTED=yes >> ~/void-packages/etc/conf
-./xbps-src pkg google-chrome
-sudo xbps-install --repository=/home/seu-usuario/void-packages/hostdir/binpkgs/nonfree google-chrome
+sudo pacman -Sy ubuntu-restricted-extras util-linux xclip ffmpeg wget curl git neofetch htop zsh tmux neovim kitty hugo flameshot
 
 ## Create directory ~/.config
 mkdir ~/.config
@@ -47,11 +39,11 @@ ln -sf ~/dotfiles/.gitconfig ~/
 ## Tmux
 ln -sf ~/dotfiles/.tmux.conf ~/
 
-## Set themes, icons and cursors
-rm -rf ~/.icons
-ln -sf ~/dotfiles/.icons/ ~/
-gsettings set org.cinnamon.desktop.interface cursor-theme "cursor"
-gsettings set org.gnome.desktop.background picture-uri file:///$HOME/dotfiles/wallpapers/wallpaper.jpg
+## Set theme, icons and wallpaper
+xfconf-query -c xsettings -p /Net/ThemeName -s "Mojave-dark-solid"
+xfconf-query -c xsettings -p /Net/IconThemeName -s "Papirus-Dark"
+xfconf-query -c xfwm4 -p /general/theme -s "Mojave-dark-solid"
+xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitorLVDS-1/workspace0/last-image -s /home/gabrielcaussi/dotfiles/wallpapers/wallpaper.png
 
 ## Fonts
 ln -sf ~/dotfiles/.fonts ~/
