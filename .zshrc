@@ -11,7 +11,6 @@ export EDITOR=nvim
 export DEFAULT_USER="$(whoami)"
 
 # Hide % on start
-#unsetopt PROMPT_SP
 PROMPT_EOL_MARK=''
 
 # Theme
@@ -36,4 +35,4 @@ alias vimconf='nvim ~/.config/nvim/init.vim'
 alias zshconf='nvim ~/.zshrc'
 alias gitconf='nvim ~/.gitconfig'
 alias kittyconf='nvim ~/.config/kitty/'
-alias projects='cd ~/Projects'
+alias work='cd ~/Projects'

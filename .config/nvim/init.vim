@@ -5,7 +5,7 @@
 
 call plug#begin()
 
-  Plug 'ghifarit53/tokyonight-vim'
+  Plug 'morhetz/gruvbox'
   Plug 'preservim/nerdtree'
   Plug 'preservim/nerdcommenter'
   Plug 'ryanoasis/vim-devicons'
@@ -50,9 +50,8 @@ set autoread
 
 " Theme
 set termguicolors
-colorscheme tokyonight
-let g:tokyonight_style = 'night' " available: night, storm
-let g:tokyonight_enable_italic = 1
+colorscheme gruvbox
+set background=dark
 
 " NERDTree
 let NERDTreeShowHidden = 1
@@ -74,7 +73,7 @@ let g:identLine_enabled=1
 nnoremap <c-k> :IndentLinesToggle<CR>
 
 " Airline
-let g:airline_theme='tokyonight'
+let g:airline_theme='gruvbox'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#branch#enabled = 1
