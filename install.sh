@@ -11,7 +11,7 @@ sudo apt update -y
 sudo apt upgrade -y
 
 ## Install wifi module for Thinkpad E431 (BCM43142)
-sudo apt install -y broadcom-sta-dkms
+sudo apt install -y broadcom-wl-dkms
 
 ## Install dependencies and softwares
 sudo pacman -Sy ubuntu-restricted-extras util-linux xclip ffmpeg wget curl git neofetch htop zsh tmux neovim kitty hugo flameshot
@@ -39,11 +39,17 @@ ln -sf ~/dotfiles/.gitconfig ~/
 ## Tmux
 ln -sf ~/dotfiles/.tmux.conf ~/
 
-## Set theme, icons and wallpaper
+## Set theme, icons, cursor and wallpaper
+ln -sf ~/dotfiles/.themes ~/
+ln -sf ~/dotfiles/.icons ~/
 xfconf-query -c xsettings -p /Net/ThemeName -s "Mojave-dark-solid"
 xfconf-query -c xsettings -p /Net/IconThemeName -s "Papirus-Dark"
+xfconf-query -c xsettings -p /Gtk/CursorThemeName -s "cursor"
 xfconf-query -c xfwm4 -p /general/theme -s "Mojave-dark-solid"
 xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitorLVDS-1/workspace0/last-image -s /home/gabrielcaussi/dotfiles/wallpapers/wallpaper.png
+xfconf-query -c xfce4-desktop -p /desktop-icons/file-icons/show-home -s "false"
+xfconf-query -c xfce4-desktop -p /desktop-icons/file-icons/show-filesystem -s "false"
+xfconf-query -c xfce4-desktop -p /desktop-icons/file-icons/show-trash -s "false"
 
 ## Fonts
 ln -sf ~/dotfiles/.fonts ~/
