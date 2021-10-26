@@ -5,14 +5,14 @@
 
 call plug#begin()
 
-  Plug 'morhetz/gruvbox'
+  Plug 'overcache/NeoSolarized'
   Plug 'preservim/nerdtree'
   Plug 'preservim/nerdcommenter'
   Plug 'ryanoasis/vim-devicons'
-  Plug 'jeffkreeftmeijer/vim-numbertoggle'
-  Plug 'yggdroot/indentline'
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
+  " Plug 'jeffkreeftmeijer/vim-numbertoggle'
+  " Plug 'yggdroot/indentline'
+  " Plug 'vim-airline/vim-airline'
+  " Plug 'vim-airline/vim-airline-themes'
   Plug 'editorconfig/editorconfig-vim'
   Plug 'ap/vim-css-color'
 
@@ -50,8 +50,15 @@ set autoread
 
 " Theme
 set termguicolors
-colorscheme gruvbox
+colorscheme NeoSolarized
 set background=dark
+let g:neosolarized_contrast = "normal"
+let g:neosolarized_visibility = "normal"
+let g:neosolarized_vertSplitBgTrans = 1
+let g:neosolarized_bold = 1
+let g:neosolarized_underline = 1
+let g:neosolarized_italic = 1
+let g:neosolarized_termBoldAsBright = 1
 
 " NERDTree
 let NERDTreeShowHidden = 1
@@ -73,7 +80,7 @@ let g:identLine_enabled=1
 nnoremap <c-k> :IndentLinesToggle<CR>
 
 " Airline
-let g:airline_theme='gruvbox'
+let g:airline_theme='molokai'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#branch#enabled = 1

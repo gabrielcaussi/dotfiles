@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Project     : Xubuntu Workstation
-# Description : Workstation for DevOps Running Xubuntu
+# Project     : PopOS Workstation
+# Description : Workstation for DevOps Running PopOS
 # Developer   : Gabriel Caussi
 # Github      : https://github.com/gabrielcaussi
 # Linkedin    : https://www.linkedin.com/in/gabrielcaussi
@@ -11,10 +11,20 @@ sudo apt update -y
 sudo apt upgrade -y
 
 ## Install wifi module for Thinkpad E431 (BCM43142)
-sudo apt install -y broadcom-wl-dkms
+sudo apt install broadcom-sta-dkms -y
 
 ## Install dependencies and softwares
-sudo pacman -Sy ubuntu-restricted-extras util-linux xclip ffmpeg wget curl git neofetch htop zsh tmux neovim kitty hugo flameshot
+sudo apt install fonts-roboto ubuntu-restricted-extras util-linux xclip ffmpeg wget curl git neofetch htop zsh tmux neovim kitty hugo flameshot -y
+
+## Install Google Chrome
+# wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+# sudo apt install ./google-chrome-stable_current_amd64.deb
+# rm google-chrome-stable_current_amd64.deb
+
+## Install Visual Studio Code
+# wget https://az764295.vo.msecnd.net/stable/6cba118ac49a1b88332f312a8f67186f7f3c1643/code_1.61.2-1634656828_amd64.deb
+# sudo apt install ./code_1.61.2-1634656828_amd64.deb
+# rm code_1.61.2-1634656828_amd64.deb
 
 ## Create directory ~/.config
 mkdir ~/.config
@@ -38,18 +48,6 @@ ln -sf ~/dotfiles/.gitconfig ~/
 
 ## Tmux
 ln -sf ~/dotfiles/.tmux.conf ~/
-
-## Set theme, icons, cursor and wallpaper
-ln -sf ~/dotfiles/.themes ~/
-ln -sf ~/dotfiles/.icons ~/
-xfconf-query -c xsettings -p /Net/ThemeName -s "Mojave-dark-solid"
-xfconf-query -c xsettings -p /Net/IconThemeName -s "Papirus-Dark"
-xfconf-query -c xsettings -p /Gtk/CursorThemeName -s "cursor"
-xfconf-query -c xfwm4 -p /general/theme -s "Mojave-dark-solid"
-xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitorLVDS-1/workspace0/last-image -s /home/gabrielcaussi/dotfiles/wallpapers/wallpaper.png
-xfconf-query -c xfce4-desktop -p /desktop-icons/file-icons/show-home -s "false"
-xfconf-query -c xfce4-desktop -p /desktop-icons/file-icons/show-filesystem -s "false"
-xfconf-query -c xfce4-desktop -p /desktop-icons/file-icons/show-trash -s "false"
 
 ## Fonts
 ln -sf ~/dotfiles/.fonts ~/
