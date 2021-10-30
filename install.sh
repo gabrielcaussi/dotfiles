@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Project     : PopOS Workstation
-# Description : Workstation for DevOps Running PopOS
+# Project     : Debian Workstation
+# Description : Workstation for DevOps Running Debian
 # Developer   : Gabriel Caussi
 # Github      : https://github.com/gabrielcaussi
 # Linkedin    : https://www.linkedin.com/in/gabrielcaussi
@@ -14,7 +14,7 @@ sudo apt upgrade -y
 sudo apt install broadcom-sta-dkms -y
 
 ## Install dependencies and softwares
-sudo apt install fonts-roboto ubuntu-restricted-extras util-linux xclip ffmpeg wget curl git neofetch htop zsh tmux neovim kitty hugo flameshot -y
+sudo apt install fonts-roboto util-linux xclip ffmpeg wget curl git neofetch htop zsh tmux neovim kitty hugo flameshot -y
 
 ## Install Google Chrome
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -31,9 +31,6 @@ mkdir ~/.config
 
 ## Create directory ~/Projects
 mkdir ~/Projects
-
-## Kitty
-ln -sf ~/dotfiles/.config/kitty/ ~/.config/
 
 ## Vim-plug
 curl -fLo ~/dotfiles/.config/nvim/autoload/plug.vim --create-dirs \
@@ -52,12 +49,5 @@ ln -sf ~/dotfiles/.tmux.conf ~/
 ## Fonts
 ln -sf ~/dotfiles/.fonts ~/
 
-## Oh-My-Zsh
-RUN_ZSH=no sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-## ZSH
-ln -sf ~/dotfiles/.zshrc ~/
-
-## Change default Shell to ZSH
-chsh -s /bin/zsh
-
+## Bash
+ln -sf ~/dotfiles/bash/.bashrc ~/
