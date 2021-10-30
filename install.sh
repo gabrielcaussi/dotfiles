@@ -60,3 +60,4 @@ ln -sf ~/dotfiles/.zshrc ~/
 
 ## Change default Shell to ZSH
 chsh -s /bin/zsh
+
