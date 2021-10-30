@@ -17,9 +17,9 @@ sudo apt install broadcom-sta-dkms -y
 sudo apt install fonts-roboto ubuntu-restricted-extras util-linux xclip ffmpeg wget curl git neofetch htop zsh tmux neovim kitty hugo flameshot -y
 
 ## Install Google Chrome
-# wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-# sudo apt install ./google-chrome-stable_current_amd64.deb
-# rm google-chrome-stable_current_amd64.deb
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo apt install ./google-chrome-stable_current_amd64.deb
+rm google-chrome-stable_current_amd64.deb
 
 ## Install Visual Studio Code
 # wget https://az764295.vo.msecnd.net/stable/6cba118ac49a1b88332f312a8f67186f7f3c1643/code_1.61.2-1634656828_amd64.deb

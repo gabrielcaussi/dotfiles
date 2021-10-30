@@ -9,7 +9,7 @@ call plug#begin()
   Plug 'preservim/nerdtree'
   Plug 'preservim/nerdcommenter'
   Plug 'ryanoasis/vim-devicons'
-  " Plug 'jeffkreeftmeijer/vim-numbertoggle'
+  Plug 'jeffkreeftmeijer/vim-numbertoggle'
   " Plug 'yggdroot/indentline'
   " Plug 'vim-airline/vim-airline'
   " Plug 'vim-airline/vim-airline-themes'
@@ -80,7 +80,7 @@ let g:identLine_enabled=1
 nnoremap <c-k> :IndentLinesToggle<CR>
 
 " Airline
-let g:airline_theme='molokai'
+let g:airline_theme='Solarized'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#branch#enabled = 1
