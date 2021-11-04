@@ -6,15 +6,17 @@
 call plug#begin()
 
   Plug 'overcache/NeoSolarized'
+  Plug 'gruvbox-community/gruvbox'
   Plug 'preservim/nerdtree'
   Plug 'preservim/nerdcommenter'
   Plug 'ryanoasis/vim-devicons'
   Plug 'jeffkreeftmeijer/vim-numbertoggle'
-  " Plug 'yggdroot/indentline'
-  " Plug 'vim-airline/vim-airline'
-  " Plug 'vim-airline/vim-airline-themes'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
   Plug 'editorconfig/editorconfig-vim'
   Plug 'ap/vim-css-color'
+  Plug 'ctrlpvim/ctrlp.vim'
+  Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
@@ -57,7 +59,7 @@ let g:neosolarized_visibility = "normal"
 let g:neosolarized_vertSplitBgTrans = 1
 let g:neosolarized_bold = 1
 let g:neosolarized_underline = 1
-let g:neosolarized_italic = 1
+let g:neosolarized_italic = 0
 let g:neosolarized_termBoldAsBright = 1
 
 " NERDTree
@@ -80,7 +82,7 @@ let g:identLine_enabled=1
 nnoremap <c-k> :IndentLinesToggle<CR>
 
 " Airline
-let g:airline_theme='Solarized'
+" let g:airline_theme='solarized'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#branch#enabled = 1
@@ -94,6 +96,7 @@ let mapleader="\<space>"
 
 " Leader key shortcuts
 nnoremap <leader>v :vsplit<CR>
+nnoremap <leader>h :split<CR>
 nnoremap <leader>sv :source ~/.config/nvim/init.vim<CR>
 nnoremap <leader>; A;<ESC>
 
@@ -101,6 +104,9 @@ nnoremap <leader>; A;<ESC>
 nnoremap <c-x> :bp\|bd #<CR>
 nnoremap <M-l> :bn<CR>
 nnoremap <M-h> :bp<CR>
+nnoremap <C-l> :tabn<CR>
+nnoremap <C-h> :tabp<CR>
+nnoremap <C-n> :tabnew<CR>
 
 " Other shortcuts
 nnoremap q :quit<CR>
